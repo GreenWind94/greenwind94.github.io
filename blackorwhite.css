@@ -5,6 +5,7 @@ body {
 }
 
 #desc {
+  text-align: center;
   padding: 14px 19px;
   background-color: #9e9ed6;
 }
@@ -115,7 +116,7 @@ body {
 }
 
 #test-button {
-  background-color: #DDD;
+  background-color: #F8F8FF;
   box-shadow: #E0E0E0 0 .15em 0.6em;
   border: 1px solid #CCC;
   margin-top: 40px;
@@ -130,6 +131,16 @@ body {
   border-radius: 4px;
   cursor: pointer;
   display: inline-block;
+}
+.button1:active {
+  background-color: #F8F8FF ;
+}
+
+.button1  {
+ border-radius: 10px;
+ box-shadow: #F8F8FF 0.15em 0.6em;
+ cursor: pointer;
+ display: inline-block;
 }
 
 #code-box {
