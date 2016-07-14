@@ -1,0 +1,86 @@
+#map {
+	position:absolute; 
+	margin-top: 5%;
+	margin-left: 15%;
+	top:0;
+	bottom:0; 
+	width:85%; 	
+	color : #283018;
+}
+
+
+#container {
+	background: #677077;
+	margin-top: 0%;
+	margin-left: 0%;
+	max-width: 1366px;
+	height: 651.5px; /*635.5*/
+	padding-top: 10px;
+	display: block;
+	text-align: center;
+	font: 20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	color: white;
+	text-decoration: none;
+	}
+
+#panel{
+	margin-top:9.6px;
+	background: #677077;
+	width: 204.3px;
+	max-height: 593px;
+}
+#panel .tweet{
+	background :#3fb0ac;
+	max-width: 204.3px;
+	height: 35px;
+	font: 14px "Lobster", Arial, Lobster, sans-serif;
+	color : #677077;
+	text-decoration: none;
+	cursor: pointer;
+}
+#panel .flip {
+	margin-top:5px;
+	font: 14px "Lobster", Arial, Lobster, sans-serif;
+	color : white;
+	text-align: left;
+	max-height: 500px;
+}
+#panel .airportinfo{
+	margin-top: 3px;
+	background :#3fb0ac;
+	max-width: 204.3px;
+	height: 35px;
+	font: 14px "Lobster", Arial, Lobster, sans-serif;
+	color : #677077;
+	text-decoration: none;
+	cursor: pointer;
+}
+}
+
+#info{
+	font: 16px "Lobster", Arial, Lobster, sans-serif;
+	color : white;
+	text-decoration: none;
+	text-align: left;
+	margin-top : 3px;
+	margin-left: 5px;
+}
+#panel .credit{
+	margin-top: 3px;
+	background :#3fb0ac;
+	max-width: 204.3px;
+	height: 35px;
+	font: 14px "Lobster", Arial, Lobster, sans-serif;
+	color : #677077;
+	text-decoration: none;
+	cursor: pointer;
+	
+}
+#panel .flipcre{
+	display: none;
+	font: 14px "Lobster", Arial, Lobster, sans-serif;
+	color : white;
+	text-align: left;
+	margin-left: 5px;
+	display: none;
+}

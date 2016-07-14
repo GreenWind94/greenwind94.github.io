@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    	<title> Credit </title>
+    </head>
+    <body bgcolor="#FFFFFF">
+<script>
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)
+alt=1
+else
+alt=0
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+1
+else
+currentpos=window.pageYOffset+1
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+function startit(){
+setInterval("scrollwindow()",10)
+}
+window.onload=initialize
+</script>
+<p align="center">
+	<img src="images/credit.jpg" alt ="Credit Image">
+</br>
+<small>
+<font face="Verdana">Khoá Luận Tốt Nghiệp</font>
+</small>
+</p>
+<p align="left">
+	<strong> 
+		<font face = "Vernada">Đề tài : </strong>Trực quan hóa hoạt động bay dân dụng tích hợp thông tin mạng xã hội</font>
+</p>
+<p align="left">
+	<strong> 
+		<font face = "Vernada">Giảng viên hướng dẫn : </strong>Th.S Ngô Quốc Hưng</font>
+</p>
+<p align="left">
+	<strong> 
+		<font face = "Vernada">Sinh viên thực hiện : </strong></br>Hoàng Đình Nguyên - MSSV : 12520656</br>Quách Tuấn Thanh - MSSV : 12520701</font>
+</p>
+	
+</body>
+</html>
+
