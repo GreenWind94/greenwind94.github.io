@@ -21,6 +21,6 @@ $(document).ready(function() {
 
 $(document).ready(function(){
 	$(".tweet").click(function(){
-		$(".flip").toggle();
+		$(".flip").slideToggle("slow");
 	});
 });

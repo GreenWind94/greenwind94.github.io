@@ -1,10 +1,19 @@
-var info = document.getElementById('info');
 
+var info = document.getElementById('info');
 var map = L.map('map').setView([17.641781,106.609538], 4);
 	L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri - World Street Map',
 }).addTo(map);
-
+map.addControl( new L.Control.Search({
+		url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+		jsonpParam: 'json_callback',
+		propertyName: 'display_name',
+		propertyLoc: ['lat','lon'],
+		markerLocation: true,
+		autoCollapse: true,
+		autoType: false,
+		minLength: 2
+	}) );
 var markerairport = new L.markerClusterGroup({
 		iconCreateFunction: function(cluster) {
 			return new L.icon({
@@ -33,6 +42,7 @@ var markerairport = new L.markerClusterGroup({
 				console.log(feature);
 				markerairport.on('click',function(e){
 					e.layer.closePopup();
+		
 				var feature = e.layer.feature;
 				var popupContent =  "<b>Airport Name :</b> " + feature.properties.name + 
 									"</br><b>City :</b> " + feature.properties.city +
@@ -40,11 +50,9 @@ var markerairport = new L.markerClusterGroup({
 									"</br><b>Code :</b> " + feature.properties.faa + 
 									"</br><b>Elevation :</b> " + feature.properties.alt +
 									"</br><b>Coordinate :</b> " + feature.geometry.coordinates +
-									"</br><b>Links :</b> " +'<a href="https://en.wikipedia.org/wiki/'+feature.properties.name +'_Airport" " target="_blank">'+'Wikipedia'+'</a>'+', ' +'<a href="https://www.google.com.vn/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q='+feature.properties.name +'Airport" " target="_blank">'+'Google'+'</a>' ;
-									
-									 
+									"</br><b>Links :</b> " +'<a href="https://en.wikipedia.org/wiki/'+feature.properties.name +'_Airport" " target="_blank">'+'Wikipedia'+'</a>'+', ' +'<a href="https://www.google.com.vn/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q='+feature.properties.name +' Airport" " target="_blank">'+'Google'+'</a>' ;
 				info.innerHTML = popupContent;
-				});
+				});	
 		}
     })
 	markerairport.addLayer(airports).addTo(map);
@@ -53,6 +61,7 @@ var markerairport = new L.markerClusterGroup({
 	function empty() {
 		info.innerHTML = '';
 		}
+	
 	var markertwitter = new L.markerClusterGroup({
 		iconCreateFunction: function(cluster) {
 			return new L.icon({
@@ -156,7 +165,7 @@ var markerairport = new L.markerClusterGroup({
 					   '<tr><td><b>Speed:</b></td><td>' + dataPoints[key][5] + '&nbsp(km/h)</td></tr>' +
 					   '<tr><td><b>Coordinate:</b></td><td>' + dataPoints[key][2] + ', ' +dataPoints[key][1]+'</td></tr>' + 
 					   '<tr><td><b>Model:</b></td><td>' + dataPoints[key][8] + '</td></tr>' + 
-					   '<tr><td><b>Flightpath:</b></td><td>' + dataPoints[key][11] + '&nbsp&rarr;&nbsp' + dataPoints[key][12]+'</td></tr>' +
+					   '<tr><td><b>Flightpath:</b></td><td>'+'<a href="https://www.google.com.vn/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q='+dataPoints[key][11] +' Airport" " target="_blank">'+ dataPoints[key][11]+'</a>' + '&nbsp&rarr;&nbsp' +'<a href="https://www.google.com.vn/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q='+dataPoints[key][12] +' Airport" " target="_blank">'+ dataPoints[key][12]+'</a></td></tr>' +
 					   "</center>");
 		marker.type = "Flignt";
 		marker.bindPopup(container[0],{closeButton: true, minWidth: 50 });
@@ -164,16 +173,4 @@ var markerairport = new L.markerClusterGroup({
 		map.addLayer(marker);			
 			//marker.addTo(map);
 	}
-	var t = L.terminator()({
-				color: '#b3c2bf',
- 				resolution: 5,
- 			});
-		t.addTo(map);
-		setInterval(function(){updateTerminator(t)}, 500);
-		function updateTerminator(t) {
-  			var t2 = L.terminator();
-  			t.setLatLngs(t2.getLatLngs());
-  			t.redraw();
-		}
-
 }
